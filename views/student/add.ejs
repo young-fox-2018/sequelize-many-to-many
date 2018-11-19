@@ -1,0 +1,26 @@
+<%- include ../partial/header.ejs %>
+</head>
+<body>
+    <h1>Add Subject To Student</h1>
+    <form action="/student/<%=student.id %>/add-subject" method="POST">
+        First name:<br>
+        <input type="text" name="firstName" value= <%=student.firstName %> readonly="true"/>
+        <br>
+        Last name:<br>
+        <input type="text" name="lastName" value=<%=student.lastName %> readonly="true"/>
+        <br>
+        Email:<br>
+        <input type="text" name="email" value=<%=student.email %> readonly="true"/>
+        <br>
+        Choose Subject <br>
+        <select name="subjectId">
+            <% for (let i = 0; i < subject.length; i++) { %>
+                <option value=<%= subject[i].id %>><%= subject[i].subjectName %></option>
+            <% } %>   
+         </select>
+         <br>
+         <br>
+         <input type="submit" value="Add Subject">
+    </form>
+</body>
+<%- include ../partial/footer.ejs %>
