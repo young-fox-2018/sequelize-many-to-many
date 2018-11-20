@@ -1,0 +1,22 @@
+<html>
+    <style>
+    table,th,td{border: 2px solid black;}
+    </style>
+    <h1 style="text-align:center; color:burlywood">Add Subject to Student</h1>
+    <h3 style="text-align:center; margin-top: -15px;"><a href="/subjects">all subjects</a></h3>
+
+    <form method="POST">
+        First name:<br>
+        <input readonly value="<%= dataConj[0].Student.firstName %>" name="firstname" ><br>
+        Last name:<br>
+        <input readonly value="<%= dataConj[0].Student.lastName %>" name="lastname" ><br>
+        Email:<br>
+        <input readonly value="<%= dataConj[0].Student.email %>" name="email" ><br>
+        Subject:<br>
+        <input readonly value="<%= dataConj[0].Subject.subjectName %>" name="subject" ><br> 
+        Score:<br>
+        <input type="int" name="score"><br>
+        <input type="submit" value="Add Score">
+      </form> 
+
+</html>

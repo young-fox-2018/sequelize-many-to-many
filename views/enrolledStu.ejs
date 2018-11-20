@@ -1,0 +1,27 @@
+<html>
+    <style>
+    a:link {color: black}
+    a:visited {color:green}
+    a:hover {color:pink}
+    table,th,td{border: 2px solid black;}
+    </style>
+    <h1 style="text-align:center; color:blueviolet"><%= dataConj[0].Subject.subjectName %></h1>
+    <h3 style="text-align:center; margin-top: -15px;"><a href="/subjects/">return to subject list</a></h3>
+    <table style="width: 100% ">
+        <tr>
+            <th>Student Name</th>
+            <th>Score</th>    
+        </tr>
+            
+            <% for(let iStudents = 0 ; iStudents<dataConj.length ; iStudents++) {%>
+        <tr>
+            <td style="text-align: center"><%= dataConj[iStudents].Student.firstName %> <%= dataConj[iStudents].Student.lastName %></td>
+            <% if(dataConj[iStudents].score) { %>
+                <td style="text-align: center"> <%= dataConj[iStudents].score %> </td>
+            <% } else{ %>
+                <td style="text-align: center"><a href="/subjects/<%=dataConj[0].subjectId%>/<%=dataConj[iStudents].studentId%>/give-score">Give Score</a></td>
+            <% } %>
+        </tr>
+        <% } %>
+    </table>
+</html>
