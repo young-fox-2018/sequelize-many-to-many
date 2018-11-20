@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+
+</head>
+<body>
+    <center>
+    <table border='2'>
+        <tr>
+            <th>id</th>
+            <th>subject name</th>
+            <th>student</th>
+            <th>action</th>
+        </tr>
+        <% for(let i = 0; i < data.length; i++) { %>
+        <tr>
+            <td><%= data[i].id %></td>
+            <td><%= data[i].subjectName %></td>
+            <td>
+            <% for(let j = 0; j < data[i].Students.length; j++) { %>
+            <%= data[i].Students[j].firstName + ' ' + data[i].Students[j].lastName%><br>
+            <% } %>
+            </td>
+            <td></td>
+        </tr>
+        <% } %>
+    </table>
+</center>
+</body>
+</html>
