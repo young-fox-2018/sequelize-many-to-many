@@ -1,0 +1,24 @@
+<html>
+    <style>
+    table,th,td{border: 2px solid black;}
+    </style>
+    <h1 style="text-align:center; color:burlywood">Add Subject to Student</h1>
+    <h3 style="text-align:center; margin-top: -15px;"><a href="/students">all students</a></h3>
+
+    <form method="POST">
+        First name:<br>
+        <input readonly type="text" value="<%= students.firstName %>" name="firstname" ><br>
+        Last name:<br>
+        <input readonly type="text" value="<%= students.lastName %>" name="lastname" ><br>
+        Email:<br>
+        <input readonly type="int" value="<%= students.email %>" name="email" ><br>
+        Subject:<br>
+        <select name= "subjectId">
+          <% sbData.forEach( (element, idElement) => { %>
+            <option value="<%= idElement+1 %>"><%= element %></option>
+         <% }) %>
+        </select>
+        <input type="submit" value="Add Student">
+      </form> 
+
+</html>

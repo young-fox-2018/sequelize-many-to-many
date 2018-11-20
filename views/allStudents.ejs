@@ -1,0 +1,32 @@
+<html>
+    <style>
+    a:link {color: black}
+    a:visited {color:green}
+    a:hover {color:pink}
+    table,th,td{border: 2px solid black;}
+    </style>
+    <h1 style="text-align:center; color:blueviolet">Students Data</h1>
+    <h3 style="text-align:center; margin-top: -15px;"><a href="/students/add">add student</a></h3>
+    <table style="width: 100% ">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+            <th>Options</th>    
+        </tr>
+            
+            <% for(let iStudents = 0 ; iStudents<studentsAll.length ; iStudents++) {%>
+        <tr>
+           <% console.log(studentsAll[iStudents]) %>
+            <td style="text-align: center"><%= studentsAll[iStudents].id %></td>
+            <td style="text-align: center"><%= studentsAll[iStudents].firstName %></td>
+            <td style="text-align: center"><%= studentsAll[iStudents].lastName %></td>
+            <td style="text-align: center"><%= studentsAll[iStudents].email %></td>
+            <td style="text-align: center"><a href="/students/<%=studentsAll[iStudents].id%>/add-subject">Add Subject</a></td>
+            <td style="text-align: center"><a href="/students/edit/<%= studentsAll[iStudents].id %>">Edit</a> | <a href="/students/delete/<%= studentsAll[iStudents].id %>" onclick= 'return confirm("WARNING! \nAre you sure about deleting this student?")'>Delete</a></td>
+        </tr>
+        <% } %>
+    </table>
+</html>
