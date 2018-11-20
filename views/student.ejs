@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Student Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Lato", sans-serif
+    }
+
+    .w3-bar,
+    h1,
+    button {
+        background-color: red;
+        border: 10;
+        color: white;
+        padding: 10px 20px;
+        margin-top: 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+
+    .fa-anchor,
+    .fa-coffee {
+        font-size: 200px
+    }
+</style>
+
+<body>
+
+    <!-- Navbar -->
+    <%- include ../partials/navbar%>
+
+        <div class="w3-container">
+            <h2>Data Student</h2>
+            <table class="w3-table-all">
+                <thead>
+                    <tr class="w3-red">
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <% data.forEach(function(student){%>
+                    <tr>
+                        <td>
+                            <%=student.first_name%>
+                        </td>
+                        <td>
+                            <%=student.last_name%>
+                        </td>
+                        <td>
+                            <%=student.email%>
+                        </td>
+                        <td>
+                            <button>
+                                <a href="/student/edit/<%=student.id%>">Edit</a>
+                            </button>
+                            <button>
+                                <a href="/student/delete/<%=student.id%>" onclick="return confirm ('Are you sure want to delete this data with name <%=student.first_name%> <%=student.last_name%>?')">Delete</a>
+                            </button>
+                        </td>
+                    </tr>
+                    <%})%>
+            </table>
+        </div>
+        <br>
+        <div>
+            <button>
+                <a href="/student/add">Add New Student!</a>
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <%- include ../partials/footer%>
+</body>
+
+</html>

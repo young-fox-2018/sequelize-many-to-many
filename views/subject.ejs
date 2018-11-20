@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Subject Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Lato", sans-serif
+    }
+
+    .w3-bar,
+    h1,
+    button {
+        background-color: red;
+        border: 10;
+        color: white;
+        padding: 10px 20px;
+        margin-top: 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+
+    .fa-anchor,
+    .fa-coffee {
+        font-size: 200px
+    }
+</style>
+
+<body>
+
+    <!-- Navbar -->
+    <%- include ../partials/navbar%>
+
+        <div class="w3-container">
+            <h2>Data Subject</h2>
+            <table class="w3-table-all">
+                <thead>
+                    <tr class="w3-red">
+                        <th>Name</th>
+                        <th>Teachers</th>
+                        <th>Actions</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <% data.forEach(function(subject){%>
+                    <tr>
+                        <td>
+                            <%=subject.subject_name%>
+                        </td>
+                        <td>
+                            <% subject.Teachers.forEach(function(teacher, index){%>
+                                <%=`${index+1}. ${teacher.first_name} ${teacher.last_name}`%>
+                                    <br>
+                                    <%})%>
+                        </td>
+                        <td>
+                            <button>
+                                <a href="/subject/<%=subject.id%>/enrolled-students">Enrolled Students</a>
+                            </button>
+                        </td>
+                        <td>
+                            <button>
+                                <a href="/subject/edit/<%=subject.id%>">Edit</a>
+                            </button>
+                            <button>
+                                <a href="/subject/delete/<%=subject.id%>" onclick="return confirm ('Are you sure want to delete this data with name <%=subject.subject_name%>?')">Delete</a>
+                            </button>
+                        </td>
+                    </tr>
+                    <%})%>
+            </table>
+        </div>
+
+        <div>
+            <button>
+                <a href="/subject/add">Add new subject!</a>
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <%- include ../partials/footer%>
+</body>
+
+</html>
