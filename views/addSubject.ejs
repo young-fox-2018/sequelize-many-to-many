@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            padding: 25px;
+            width: 100%;
+            color: #549DF7;
+            text-align: center;
+            background: white;
+        }
+    </style>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+    <br>
+    <br>
+    <div class="container">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/student">Student</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/subject">Subject</a>
+            </li>
+        </ul>
+    </div>
+    <br>
+
+    <br>
+    <div class="container">
+        <h1>Add Subject to Student</h1>
+        <table class="table">
+            <tr>
+                <th>First Name</th>
+                <td>
+                    <%=data.first_name%>
+                </td>
+            </tr>
+            <tr>
+                <th>last_name</th>
+                <td>
+                    <%=data.last_name%>
+                </td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>
+                    <%=data.email%>
+                </td>
+            </tr>
+            <tr>
+                <th>Choose Subject</th>
+                <td>
+
+                </td>
+            </tr>
+        </table>
+
+        <div class="container">
+            <form action="/student/<%=data.id%>/add-subject" method="post">
+                <div class="form-group">
+                    <select name="subject">
+                        <%subject.forEach(data=>{%>
+                        <option value=<%=data.id%>>
+                            <%=data.subject_name%>
+                        </option>
+                        <%})%>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Subject</button>
+            </form>
+        </div>
+        <br>
+        <br>
+
+    </div>
+    <div style="height: 100px"></div>
+    <br>
+
+    <div class="footer">
+        <footer> &copy; hacktiv8 - XavierFox </footer>
+        <marquee behavior="scroll" direction="">
+            <h3>🔥🔥🔥 GOOD LUCK 🔥🔥🔥</h3>
+        </marquee>
+    </div>
+</body>
+
+</html>
