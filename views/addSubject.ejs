@@ -1,0 +1,32 @@
+<%- include ./partial/header.ejs %>
+  <title>Add Suject </title>
+</head>
+<body>
+  <h1>Add Subject to Student</h1>
+  <table>
+    <tr>
+        <td>First Name</td>
+        <td><%= data.data.first_name%></td>
+      </tr>
+      <tr>
+        <td>Last Name</td>
+        <td><%= data.data.last_name%></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><%= data.data.email%></td>
+      </tr>
+  </table>
+  <div class="form-group">
+      <label for="sel1">Choose Subject:</label>
+      <form method="POST">
+      <select class="form-control" id="sel1">
+        <% for(let i = 0 ; i < data.subject.length; i++) { %>
+          <option><%= data.subject[i]%></option>
+        <%}%>
+      </select>
+    </div> </br>
+    <button type="submit">Add Subject</button>
+  </form>
+</body>
+</html>
