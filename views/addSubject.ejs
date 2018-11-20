@@ -20,13 +20,13 @@
   <div class="form-group">
       <label for="sel1">Choose Subject:</label>
       <form method="POST">
-      <select class="form-control" id="sel1">
+      <select class="form-control" id="sel1" name="id">
         <% for(let i = 0 ; i < data.subject.length; i++) { %>
           <option><%= data.subject[i]%></option>
         <%}%>
       </select>
     </div> </br>
-    <button type="submit">Add Subject</button>
+    <button class="btn btn-info" type="submit">Add Subject</button>
   </form>
 </body>
 </html>

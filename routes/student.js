@@ -82,7 +82,11 @@ route.get('/addSubject/:id' , (req,res) => {
         let subjectName = subject.map(element =>{
           return element.subject_name
         })
+        let subjectId = subject.map(element =>{
+          return element.id
+        })
         input.subject = subjectName
+        input.subjectId = subjectId
         // res.send(subjectName)
         res.render('addSubject' , {data:input})
       })
@@ -93,6 +97,11 @@ route.get('/addSubject/:id' , (req,res) => {
 })
 
 route.post('/addSubject/:id' , (req,res) =>{
+  res.send(req.body)
+  Model.StudentSubject.create({
+    SubjectId : req.body.subject,
+    StudentId : req.params.id
+  })
   
 })
 
