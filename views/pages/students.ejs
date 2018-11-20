@@ -1,0 +1,31 @@
+<%- include ../partials/header.ejs %>
+    <h1>Students Data</h1>
+    <p class="center"><a href="/student/add">Add New Student</a></p>
+    
+    <table>
+        <col width="5%">
+        <col width="15%">
+        <col width="15%">
+        <col width="25%">
+        <col width="10%">
+        <col width="10%">
+        <tr>
+            <th>No.</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+            <th>Options</th>
+        </tr>
+        <% for( let i = 0; i < data.length; i++)  {%>
+        <tr>
+            <td class="center"><%= i+1 %></td>
+            <td><%= data[i].firstName %></td>
+            <td><%= data[i].lastName %></td>
+            <td><%= data[i].email %></td>
+            <td class="center"><a href="/students/<%= data[i].id%>/add-subject">Add Subject</a></td>
+            <td class="center"><a href="/students/edit/<%= data[i].id%>"> Edit </a> | <a href="/student/delete/<%= data[i].id%>" onclick="return confirm('Delete this student?')"> Delete </a></td>
+        </tr>
+        <% } %>
+    </table>
+<%- include ../partials/footer.ejs %>

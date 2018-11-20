@@ -1,0 +1,18 @@
+<%- include ../partials/header.ejs %>
+    
+    <form method="POST" action="/students/<%= data.id %>/add-subject">
+        <p>First Name:</p>
+        <input type="text" name="firstName" value="<%= data.firstName%>" disabled>
+        <p>Last Name:</p>
+        <input type="text" name="lastName" value="<%= data.lastName %>" disabled>
+        <p>Email:</p>
+        <input type="email" name="email" value="<%= data.email %>" disabled><br><br>
+        Subject: 
+        <select name="SubjectId">
+            <% subjects.forEach( (element, index) => {%>
+                <option value="<%=index+1%>"><%= element %></option>                
+            <% }) %>
+          </select> <br>
+        <input id="submit" type="submit" value="Add Subject">
+    </form>
+<%- include ../partials/footer.ejs %>

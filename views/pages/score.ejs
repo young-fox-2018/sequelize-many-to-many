@@ -1,0 +1,11 @@
+<%- include ../partials/header.ejs %>
+
+    <h1>Score Page</h1>
+
+    <form action="/subjects/<%=subjectId %>/<%= student.id %>/give-score" method="POST">
+            <p>Student Name:</p>
+            <input type="text" name="name" value="<%= student.firstName %> <%= student.lastName %>" disabled><br>
+            <input type="number" name="score"><br>
+            <input type="submit" value="Add Score">
+    </form>
+<%- include ../partials/footer.ejs %>

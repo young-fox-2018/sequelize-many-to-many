@@ -1,0 +1,31 @@
+<%- include ../partials/header.ejs %>
+
+    <h1>Subject Lists</h1>
+    <p class="center"><a href="/subject/add">Add New Subject</a></p>
+    
+    <table>
+        <col width="5%">
+        <col width="20%">
+        <col width="20%">
+        <col width="20%">
+        <tr>
+            <th>No.</th>
+            <th>Subject</th>
+            <th>Teachers</th>
+            <th>Actions</th>
+        </tr>
+        <% data.forEach(subject => { %>
+            <tr>
+                <td><%= subject.id %></td>
+                <td><%= subject.subjectName %></td>
+                <td>
+                    <% for(let i = 0; i < subject.Teachers.length; i++) { %>
+                        <%= i+1 %>. <%=subject.Teachers[i].firstName + ' ' + subject.Teachers[i].lastName %><br>
+                    <% } %>
+                </td>                
+                <td><a href="/subjects/<%= subject.id %>/enrolled-students">Enrolled Students</a></td>
+            </tr>
+        <% }) %>
+    </table>
+    
+<%- include ../partials/footer.ejs %>

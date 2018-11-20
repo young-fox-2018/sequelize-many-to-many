@@ -1,0 +1,24 @@
+<%- include ../partials/header.ejs %>
+    <h1><%= data[0].Subject.subjectName %></h1>
+    <p class="center"><a href="/subjects">return to subject list</a></p>    
+
+    <table>        
+        <col width="20%">
+        <col width="20%">
+        <tr>
+            <th>Name</th>
+            <th>Score</th>            
+        </tr>
+        <% data.forEach(student => { %>
+            <tr>
+                <td><%= student.Student.firstName %> <%= student.Student.lastName%></td>
+                <% if (student.score) { %>
+                    <td><%= student.score%></td>
+                <% } else { %>                    
+                    <td><a href="/subjects/<%= data[0].SubjectId %>/<%= student.StudentId %>/give-score">Give Score</a></td>                    
+                <% } %>
+            </tr>
+        <% }) %>
+        
+    </table>
+<%- include ../partials/footer.ejs %>
