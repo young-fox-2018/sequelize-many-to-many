@@ -1,0 +1,32 @@
+<%- include ../partials/header.ejs %>
+    <div class="container">
+            <h1>All Subjects data</h1>
+
+            <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th> 
+                            <th scope="col">Subject Name</th> 
+                            <th scope="col">Teacher</th> 
+                            <th scope="col">Actions</th>  
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let i = 0; i < data.length; i++){ %>
+                            <tr>
+                                <td><%-data[i].id%></td>
+                                <td><%-data[i].name%></td>
+                                <td><ul>
+                                    <% for(let j in data[i].Teachers){ %>
+                                        <li> <%= data[i].Teachers[j].first_name + " " + data[i].Teachers[j].last_name %></li>
+                                    <% } %>
+                                </ul></td>
+                                <td><a href="/subject/<%-data[i].id%>/enrolled-student">Enrolled Student</a></td>
+                            </tr>
+            
+                        <% } %>
+                    </tbody>
+                </table>    
+    </div>
+</body>
+</html>

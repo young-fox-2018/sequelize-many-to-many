@@ -1,0 +1,34 @@
+<%- include ../partials/header.ejs %>
+<body>
+    <div class="container container-fluid">
+        <h1>Student Data</h1>
+        <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                <%- msg %>
+        </div>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">First Name</th> 
+                    <th scope="col">Last Name</th> 
+                    <th scope="col">Email</th> 
+                    <th scope="col">Action</th> 
+                    <th scope="col">Option</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i = 0; i < data.length; i++){ %>
+                    <tr>
+                        <td><%-data[i].first_name%></td>
+                        <td><%-data[i].last_name%></td>
+                        <td><%-data[i].email%></td>
+                        <td><a href="/Student/<%-data[i].id%>/add-subject">add subject</a></td>
+                        <td><a href="/Student/<%-data[i].id%>/edit">edit</a> | <a href="/student/<%-data[i].id%>/delete" onclick="return confirm('are you sure?')">delete</a></td>
+                    </tr>
+    
+                <% } %>
+            </tbody>
+        </table>    
+    </div>
+</body>
+</html>
