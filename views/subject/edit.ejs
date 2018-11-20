@@ -21,26 +21,21 @@
     <body>
         <table>
             <tr>
-                <th>Id</th>
-                <th>First Name</th> 
-                <th>Last name</th>
-                <th>Email</th>
-                <th>Actions</th>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Action</th>
             </tr>
             <% for (let i = 0; i < data.length; i++) { %>
             <tr>
-                <td><%= data[i].firstName %></td>
-                <td><%= data[i].lastName %></td>
-                <td><%= data[i].email %></td>
-                <td><a href="/student/<%= data[i].id %>/add-subject">Add Subject</a></td>
+                <td><%= data[i].firstName %> <%= data[i].lastName %></td>
+                <td><%= data[i].StudentsSubject.score %></td>
                 <td>
-                    <a href="/student/edit<%=data[i].id %>">Edit</a>
-                    <a onclick="return(confirm('Are you sure'))" href="/student/delete/<%=data[i].id %>">Delete</a>
+                <% if (!data[i].StudentsSubject.score) { %>
+                    <a href="/subject/<%=data[i].StudentsSubject.subjectId %>/<%=data[i].id %>/give-score">Give score</a>
+                <% } %>
                 </td>
             </tr>
             <% } %>
         </table>
     </body>
-
-
 <%- include ../partial/footer.ejs %>

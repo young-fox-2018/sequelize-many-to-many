@@ -58,5 +58,19 @@ routes.post('/:id/add-subject', (req, res) => {
     })
 })
 
+routes.get('/delete/:id', (req, res) => {
+    Model.Student.destroy({
+        where: {
+            id: req.params.id
+        }
+    })   
+    .then((data) => {
+        res.redirect('/student?result=success')
+    })
+    .catch((err) => {
+        res.redirect('/student?result=failed')
+    })
+})
+
 
 module.exports = routes

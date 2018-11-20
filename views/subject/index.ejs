@@ -22,21 +22,23 @@
         <table>
             <tr>
                 <th>Id</th>
-                <th>First Name</th> 
-                <th>Last name</th>
-                <th>Email</th>
-                <th>Actions</th>
+                <th>Subject</th>
+                <th>Teacher</th>
+                <th>Action</th>
             </tr>
             <% for (let i = 0; i < data.length; i++) { %>
             <tr>
-                <td><%= data[i].firstName %></td>
-                <td><%= data[i].lastName %></td>
-                <td><%= data[i].email %></td>
-                <td><a href="/student/<%= data[i].id %>/add-subject">Add Subject</a></td>
-                <td>
-                    <a href="/student/edit<%=data[i].id %>">Edit</a>
-                    <a onclick="return(confirm('Are you sure'))" href="/student/delete/<%=data[i].id %>">Delete</a>
+                <td><%= data[i].id %></td>
+                <td><%= data[i].subjectName %></td>
+                <td>                
+                    <ol>
+                        <% for (let j = 0; j < data[i].teacher.length; j++) { %>
+                        <li><%= data[i].teacher[j] %></li>
+                        <% } %>       
+                    </ol>
+                    
                 </td>
+                <td><a href="/subject/<%=data[i].id %>/enrolled-students">Enrolled Students</a></td>              
             </tr>
             <% } %>
         </table>
