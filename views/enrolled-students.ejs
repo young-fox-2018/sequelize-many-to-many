@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1><%=data[0].subject.subjectName%></h1>
+    <ul>
+      <%data.forEach(function(student){%>
+      <li>
+        Nama : <%=student.student.firstName %> <%=student.student.lastName %>
+        <br>
+        Score : <%=student.score %>
+        <br>
+        <a href="/subject/<%=student.id%>/give-score">Give Score</a>
+      </li>
+      <br>
+      <%})%>
+    </ul>
+  </body>
+</html>

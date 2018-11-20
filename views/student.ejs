@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Student</h1>
+    <ul>
+      <%data.forEach(function(student){%>
+      <li>
+        Nama : <%=student.firstName %> <%=student.lastName %>
+        <br>
+        Email : <%=student.email %>
+        <br>
+        <a href="/student/edit/<%=student.id%>">Edit</a>
+        <a href="/student/<%=student.id%>/add-subject">Add Subject</a>
+        <br>
+        <a href="/student/delete/<%=student.id%>" onclick="return confirm('Apa anda yakin ingin menghapus data ini?')">Delete</a>
+      </li>
+      <br>
+      <%})%>
+      <br>
+      <a href="/student/add">Add Student</a>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Add Subject to Student</h1>
+    <p>Name: <%=data.firstName%>  <%=data.lastName%> </p>
+    <p>Email: <%=data.email%> </p>
+    <form method="POST" action="/student/<%=data.id%>/add-subject">
+      Subject:<br>
+      <select name="subject">
+       <option value="1">Fisika</option>
+       <option value="2">Kimia</option>
+       <option value="3">Bilogi</option>
+      </select>
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

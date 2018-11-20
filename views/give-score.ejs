@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Give Score</h1>
+    <form method="POST" action="/subject/<%=data.id%>/give-score">
+      Give Score <%=data.student.firstName %> <%=data.student.lastName %> for Subject <%=data.subject.subjectName%>
+      Score:<br>
+      <input type="number" name="score" value="<%=data.score%>">
+      <input type="hidden" name="subjectId" value="<%=data.subject.id%>"
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
