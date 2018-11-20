@@ -1,0 +1,41 @@
+<%- include ../partial/header.ejs %>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Action</th>
+            </tr>
+            <% for (let i = 0; i < data.length; i++) { %>
+            <tr>
+                <td><%= data[i].firstName %> <%= data[i].lastName %></td>
+                <td><%= data[i].StudentsSubject.score %></td>
+                <td>
+                <% if (!data[i].StudentsSubject.score) { %>
+                    <a href="/subject/<%=data[i].StudentsSubject.subjectId %>/<%=data[i].id %>/give-score">Give score</a>
+                <% } %>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+    </body>
+<%- include ../partial/footer.ejs %>

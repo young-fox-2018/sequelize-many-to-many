@@ -1,0 +1,46 @@
+<%- include ../partial/header.ejs %>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th> 
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+            <% for (let i = 0; i < data.length; i++) { %>
+            <tr>
+                <td><%= data[i].firstName %></td>
+                <td><%= data[i].lastName %></td>
+                <td><%= data[i].email %></td>
+                <td><a href="/student/<%= data[i].id %>/add-subject">Add Subject</a></td>
+                <td>
+                    <a href="/student/edit<%=data[i].id %>">Edit</a>
+                    <a onclick="return(confirm('Are you sure'))" href="/student/delete/<%=data[i].id %>">Delete</a>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+    </body>
+
+
+<%- include ../partial/footer.ejs %>
