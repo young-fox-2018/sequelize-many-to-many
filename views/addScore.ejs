@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            padding: 25px;
+            width: 100%;
+            color: #549DF7;
+            text-align: center;
+            background: white;
+        }
+    </style>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+    <br>
+    <br>
+    <div class="container">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/student">Student</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/subject">Subject</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>Score Student</h1>
+        <table class="table table-striped">
+            <thead style="text-align:center">
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">First_name</th></a></th>
+                    <th scope="col">Last_name</a></th>
+                    <th scope="col">Score</a></th>
+                    <th scope="col">Actions</a></th>
+                </tr>
+            </thead>
+
+            <div class="form-group">
+                <%data.Subject.Students.forEach((student,index)=>{%>
+                <tr scope="row" style="text-align:center">
+                    <td>
+                        <%=index+1%>
+                    </td>
+                    <td>
+                        <%=student.first_name%>
+                    </td>
+                    <td>
+                        <%=student.last_name%>
+                    </td>
+                    <td>
+                        <%=student.SubjectStudent.score%>
+                    </td>
+                    <td>
+                        <a href="/subject/<%=data.SubjectId%>/score/<%=student.id%>"> add Score</a>
+                    </td>
+                </tr>
+                <% })%>
+
+            </div>
+
+
+    </div>
+    <div style="height: 100px"></div>
+    <br>
+
+    <div class="footer">
+        <footer> &copy; hacktiv8 - XavierFox </footer>
+        <marquee behavior="scroll" direction="">
+            <h3>🔥🔥🔥 GOOD LUCK 🔥🔥🔥</h3>
+        </marquee>
+    </div>
+</body>
+
+</html>
