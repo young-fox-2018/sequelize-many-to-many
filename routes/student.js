@@ -81,10 +81,14 @@ route.get(`/:id/addSubject`, function(req, res) {
             id: req.params.id
         }
     }).then((result) => {
-        res.render(`./add/addStudentSubject`, {
-            result: result
-        })
-        
+        Model.Subject.findAll().then((data) => {
+            res.render(`./add/addStudentSubject`, {
+                result: result,
+                data: data
+            }) 
+        }).catch((err) => {
+            
+        });
     }).catch((err) => {
         res.send(err)
     });

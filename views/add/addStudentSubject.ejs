@@ -24,7 +24,7 @@
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="/css/materialize.css"  media="screen,projection"/>
-
+    
   <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
 <!-- Compiled and minified JavaScript -->
@@ -35,7 +35,7 @@
 </head>
   
 <body class="container center-align">
-<h1>Edit Data</h1>
+<h1>Add Subject</h1>
 
 <table>
 <thead>
@@ -44,6 +44,7 @@
       <th>First Name</th>
       <th>Last Name</th>
       <th>Email</th>
+      <th>Choose Subject</th>
       
   </tr>
 </thead>
@@ -54,9 +55,20 @@
 <td> <%= result.firstName %> </td>
 <td> <%= result.lastName %> </td>
 <td> <%= result.email %> </td>
+
 </tr>
 </tbody>
 </table>
+
+<div class="input-field col s12">
+    <select>
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    <label>Materialize Select</label>
+  </div>
 </body>
 </html>
 </body>

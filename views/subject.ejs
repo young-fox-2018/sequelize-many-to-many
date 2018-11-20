@@ -38,11 +38,10 @@
             <td>
             <%for (let j =0; j < result[i].dataValues.Teachers.length; j++) { %>
                 <li class="collection-item"><%= result[i].dataValues.Teachers[j].firstName+ ' '+ result[i].dataValues.Teachers[j].lastName%></li>
-                
+                <% } %>
                 </td>
             <td> 
-            <a href="/subject/edit/<%=result[i].dataValues.id%>">Edit</a> |
-             <a href="/subject/delete/<%= result[i].dataValues.id %>" onclick="return confirm('Apakah anda ingin delete?')">Delete</a>
+            <a href="/subject/<%=result[i].dataValues.id%>/enrolled-students">Enrolled Students</a>
             </td>
         </tr>
 
