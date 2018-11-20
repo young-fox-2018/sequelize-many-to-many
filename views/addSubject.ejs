@@ -1,5 +1,5 @@
 <%- include ./partial/header.ejs %>
-  <title>Add Suject </title>
+  <title>Add Subject </title>
 </head>
 <body>
   <h1>Add Subject to Student</h1>
@@ -20,13 +20,14 @@
   <div class="form-group">
       <label for="sel1">Choose Subject:</label>
       <form method="POST">
-      <select class="form-control" id="sel1" name="id">
+      <select class="form-control" id="sel1" name ="subject">
         <% for(let i = 0 ; i < data.subject.length; i++) { %>
-          <option><%= data.subject[i]%></option>
+          <option value="<%= data.subject[i]%>"><%= data.subject[i]%></option>
         <%}%>
       </select>
-    </div> </br>
-    <button class="btn btn-info" type="submit">Add Subject</button>
+     </br>
+    <input class="btn btn-info" type="submit" value="Add Subject">
   </form>
+</div>
 </body>
 </html>

@@ -82,11 +82,7 @@ route.get('/addSubject/:id' , (req,res) => {
         let subjectName = subject.map(element =>{
           return element.subject_name
         })
-        let subjectId = subject.map(element =>{
-          return element.id
-        })
         input.subject = subjectName
-        input.subjectId = subjectId
         // res.send(subjectName)
         res.render('addSubject' , {data:input})
       })
@@ -97,11 +93,22 @@ route.get('/addSubject/:id' , (req,res) => {
 })
 
 route.post('/addSubject/:id' , (req,res) =>{
-  res.send(req.body)
-  Model.StudentSubject.create({
-    SubjectId : req.body.subject,
-    StudentId : req.params.id
-  })
+  // res.send(req.body.subject)
+  Model.Subject.findOne( {where:{subject_name : req.body.subject}})
+    .then(data => {
+      // res.send(data.id)
+      // res.send(data.subject_name)
+      Model.StudentSubject.create({
+        SubjectId : data.id,
+        StudentId : req.params.id
+      })
+      .then(data1 =>{
+        res.send('succes')
+      })
+    })
+    .catch(err => {
+      res.send(err)
+    })
   
 })
 
