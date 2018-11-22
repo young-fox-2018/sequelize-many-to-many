@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include partials/head %>
+</head>
+<body>
+    <% include partials/menu %>
+    <div class="container container-fluid">
+        <h3 class="bg-3 text-center"> Edit Data Student</h3>
+        <form method="POST" action="/student/edit/<%- detailStudent.id %>">
+            <div class="form-field">
+                <label for="message">First Name</label>
+                <input name="first_name" type="text" value="<%- detailStudent.first_name %>" />
+            </div>
+            <div class="form-field">
+                <label for="email">Last Name</label>
+                <input name="last_name" type="text" value="<%- detailStudent.last_name %>" />
+            </div>
+            <div class="form-field">
+                <label for="email">Email</label>
+                <input  name="email" type="email" value="<%- detailStudent.email %>" />
+            </div>
+            <div class="form-actions">
+                <button  name="button" type="submit">Send</button>
+            </div>
+        </form> 
+    </div>
+</body>
+</html>
