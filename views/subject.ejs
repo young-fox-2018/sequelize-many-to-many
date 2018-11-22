@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include partials/head %>
+</head>
+<body>
+    <% include partials/menu %> 
+
+    <div class=" container container-fluid">    
+        <h3 class="bg-3 text-center"> All Subjects Data </h3>
+        <h4 class="add text-center"> <a href="subject/#">Add Subject Data </a></h4><br>
+        <%  if(dataSubject.length > 0) { %>
+        <table class="table table-striped" >
+            <thead>
+                <tr>
+                    <th scope="col"> Id</th>
+                    <th scope="col">Subject name</th>
+                    <th scope="col">Teacher</th> 
+                    <th scope="col"> Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% dataSubject.forEach(subject=>{ %>
+                <tr>
+                    <th> <%= subject.id %></th>
+                    <th> <%= subject.subject_name %> </th>
+                    <th>
+                            <% let i = 1; %>
+                            <% subject.Teachers.forEach(teacher=>{ %>
+                            <%= [i]+"."+helper.getFullname(teacher.first_name, teacher.last_name) %>
+                            <br>
+                            <% i++ }) %>
+                    </th>
+                    <th> <a href=""> View Enrolled Student</a></th>
+                </tr> 
+                <% }) %>
+            </tbody>
+        </table>
+        <% } else { %>
+            <h1>Data tidak ada </h1>
+        <% } %>
+    </div>
+
+</body>
+</html>

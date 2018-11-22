@@ -1,0 +1,72 @@
+.bg-3 { 
+    background-color: #ffffff;
+    color: #555555;
+}
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+ /* The alert message box */
+ .alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.alert.success {background-color: #4CAF50;}
+.alert.info {background-color: #2196F3;}
+.alert.warning {background-color: #ff9800;}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+} 
+
+.userinput{
+
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 30px;
+
+}
+.form-student {
+    width: 50%;
+    background-color: rgb(197, 217, 219);
+}
+
+.add {
+    color: #0860d4;
+}
+
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+.navbar-nav  li a:hover {
+    color: #1abc9c !important;
+}
+
+.active>a {
+  color: #1abc9c !important;;
+}
+
