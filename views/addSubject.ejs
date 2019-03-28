@@ -1,0 +1,33 @@
+<%- include ./partial/header.ejs %>
+  <title>Add Subject </title>
+</head>
+<body>
+  <h1>Add Subject to Student</h1>
+  <table>
+    <tr>
+        <td>First Name</td>
+        <td><%= data.data.first_name%></td>
+      </tr>
+      <tr>
+        <td>Last Name</td>
+        <td><%= data.data.last_name%></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><%= data.data.email%></td>
+      </tr>
+  </table>
+  <div class="form-group">
+      <label for="sel1">Choose Subject:</label>
+      <form method="POST">
+      <select class="form-control" id="sel1" name ="subject">
+        <% for(let i = 0 ; i < data.subject.length; i++) { %>
+          <option value="<%= data.subject[i]%>"><%= data.subject[i]%></option>
+        <%}%>
+      </select>
+     </br>
+    <input class="btn btn-info" type="submit" value="Add Subject">
+  </form>
+</div>
+</body>
+</html>

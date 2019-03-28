@@ -1,0 +1,32 @@
+<%- include ./partial/header.ejs %>
+
+  <title>Student</title>
+</head>
+<body>
+    <h1>Students Data</h1>
+    <a href="student/add">Add Student data</a> 
+      <table style="width:100%"class="table table-condensed">
+          <tr>
+            <th>id</th>
+            <th>Firstname</th>
+            <th>Lastname</th> 
+            <th>Email</th>
+            <th>Action</th>
+            <th>Option</th>
+          </tr>
+          <% for(let i = 0; i < data.length ; i++){ %> 
+            <tr>
+              <td><%= data[i].id %></td>
+              <td><%= data[i].first_name %></td>
+              <td><%= data[i].last_name %></td>
+              <td><%= data[i].email %></td>
+              <td><a href="student/addSubject/<%=data[i].id%>">add Subject</a></td>
+              <td> <a href="student/edit/<%=data[i].id%>">Edit</a> | 
+                <a onclick="return confirm('Are you sure')" href="student/delete/<%=data[i].id%>">Delete</a>
+              </td>
+            </tr>
+           <% }%>
+        </table>
+  
+</body>
+</html>

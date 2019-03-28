@@ -1,0 +1,115 @@
+const route = require('express').Router()
+const Model = require('../models/index')
+
+route.get('/' , (req,res) => {
+  Model.Student.findAll()
+    .then(data =>{
+      res.render('student.ejs' , {data:data})
+    })
+    .catch(err => {
+      res.render('error.ejs' , {data:'Error in displaying data in student routes'})
+    })
+})
+
+route.get('/add' , (req,res) => {
+  res.render('add.ejs')
+})
+
+route.post('/add' , (req,res) => {
+  let obj = req.body 
+  Model.Student.create({
+    first_name: obj.first_name,
+    last_name: obj.last_name,
+    email: obj.email
+  })
+  .then(data => {
+    res.redirect('/student')
+  })
+  .catch(err => {
+    res.render('error.ejs' , {data: `Error in adding student section: routes post`})
+  })
+})
+
+route.get('/edit/:id', (req,res)=> {
+  res.render('edit.ejs')
+})
+
+route.post('/edit/:id', (req,res) => {
+  let obj = req.body
+    if(obj.first_name == '' || obj.first_name == undefined){
+    res.redirect('error.ejs',{data: `Please fill first name!`})
+  } else if (obj.last_name == '' || obj.last_name == undefined) {
+    res.redirect('error.ejs',{data:`Please fill last name!` })
+  } else if(obj.email == '' || obj.email == undefined) {
+    res.redirect('error.ejs',{data:`Please fill email!` })
+  } else {
+    Model.Student.update({
+      first_name : obj.first_name, 
+      last_name : obj.last_name,
+      email : obj.email,
+    }, {
+        where:{
+          id: req.params.id
+        }
+    })
+    .then(data => {
+      res.redirect('/student')
+    })
+    .catch(err => {
+      res.render('error.ejs' , {data:`Error in editting student in route`})
+    })
+  }
+})
+
+route.get('/delete/:id', (req,res)=>{
+  Model.Student.destroy({where:{id:req.params.id}})
+  .then(data =>{
+    res.redirect('/student')
+  })
+  .catch(err=> {
+    res.render('error.ejs' , {data:`Error in deleting student in routes`})
+  })
+})
+
+route.get('/addSubject/:id' , (req,res) => {
+  Model.Student.findOne({where:{id:req.params.id}})
+    .then(data => {
+      let input ={
+        data: data
+      }
+      Model.Subject.findAll()
+      .then(subject => {
+        let subjectName = subject.map(element =>{
+          return element.subject_name
+        })
+        input.subject = subjectName
+        // res.send(subjectName)
+        res.render('addSubject' , {data:input})
+      })
+    })
+    .catch(err => {
+      res.render('error.ejs' , {data:`Error in add Subject in routes subject`})
+    })
+})
+
+route.post('/addSubject/:id' , (req,res) =>{
+  // res.send(req.body.subject)
+  Model.Subject.findOne( {where:{subject_name : req.body.subject}})
+    .then(data => {
+      // res.send(data.id)
+      // res.send(data.subject_name)
+      Model.StudentSubject.create({
+        SubjectId : data.id,
+        StudentId : req.params.id
+      })
+      .then(data1 =>{
+        res.send('succes')
+      })
+    })
+    .catch(err => {
+      res.send(err)
+    })
+  
+})
+
+module.exports = route
