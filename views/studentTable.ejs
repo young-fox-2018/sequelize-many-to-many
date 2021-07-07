@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Student</title>
+</head>
+<body>
+    <center>
+    <h3><%= info %></h3>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>first name</th>
+            <th>last name</th>
+            <th>action</th>
+            <th>option</th>
+        </tr>
+        <% for(let i = 0; i < data.length; i++) { %>
+        <tr>
+            <td><%= data[i].id %></td>
+            <td><%= data[i].firstName %></td>
+            <td><%= data[i].lastName %></td>
+            <td><a href="/student/<%= data[i].id %>/add-subject">add subject</a></td>
+            <td><a href="/student/edit/<%= data[i].id %>">edit</a>
+                <a href="/student/delete/<%= data[i].id %>">delete</a></td>
+        <% } %>
+        </tr>
+    </table>
+    <a href="/student/add">add student</a>
+    </center>
+</body>
+</html>
